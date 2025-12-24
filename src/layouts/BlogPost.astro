@@ -21,17 +21,13 @@ const { title, description, createdAt, updatedAt, tags } = Astro.props;
           ><StyledDate date={updatedAt} /></span
         >
       </p>
-      {
-        tags && (
-          <div class="my-2 font-mono">
-            {tags.map((tag) => (
-              <span class="bg-yellow-200 text-black rounded px-2 mr-1">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )
-      }
+      <div class="my-2 font-mono text-black">
+        {
+          tags?.map((tag) => (
+            <span class="bg-yellow-200 rounded px-2 mx-1">{tag}</span>
+          ))
+        }
+      </div>
     </header>
 
     <div class="my-4 text-lg post">

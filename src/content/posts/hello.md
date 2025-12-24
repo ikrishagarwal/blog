@@ -3,7 +3,7 @@ title: Hello World
 description: My first blog post
 createdAt: Dec 24 2025
 updatedAt: Dec 24 2025
-tags: ["introduction", "hello"]
+tags: ["hello", "world"]
 ---
 
 # Hello World

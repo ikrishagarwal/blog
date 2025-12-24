@@ -1,5 +1,10 @@
 @import "tailwindcss";
+@import "./global.css";
 
 .post h1 {
-  @apply text-3xl;
+  @apply text-3xl font-brand;
+}
+
+.post img {
+  @apply my-4 rounded;
 }
