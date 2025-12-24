@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import StyledDate from '../components/date.astro';
+
+type Props = CollectionEntry<'blog'>['data']
+const { title, description, createdAt, updatedAt, tags } = Astro.props;
+---
+
+<section>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <p>Created at: <StyledDate date={createdAt}></StyledDate></p>
+      <p>Updated at: <StyledDate date={updatedAt}></StyledDate></p>
+      {tags && (
+        <div>
+          {tags.map((tag) => (
+            <span>{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div>
+      <slot />
+    </div>
+  </article>
+</section>
