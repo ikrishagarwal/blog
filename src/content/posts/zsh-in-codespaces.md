@@ -73,4 +73,4 @@ mkdir -p ~/.config && printf "[container]\ndisabled = true" >> ~/.config/starshi
 
 **Voila! You are ready to use ZSH with Starship and ZSH Auto Suggestions and Syntax Highlighting.**
 
-If you like it consider following me on [github](https://github.com/krishagarwal2811)
+If you like it consider following me on [github](https://github.com/ikrishagarwal)
