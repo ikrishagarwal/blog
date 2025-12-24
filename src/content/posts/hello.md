@@ -4,6 +4,7 @@ description: My first blog post
 createdAt: Dec 24 2025
 updatedAt: Dec 24 2025
 tags: ["hello", "world"]
+coverImage: ../../assets/codespaces.webp
 ---
 
 # Hello World

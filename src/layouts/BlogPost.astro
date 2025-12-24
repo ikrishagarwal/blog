@@ -4,37 +4,49 @@ import StyledDate from "../components/date.astro";
 
 import "../styles/global.css";
 import "../styles/post.css";
+import { Image } from "astro:assets";
 
 type Props = CollectionEntry<"blog">["data"];
-const { title, description, createdAt, updatedAt, tags } = Astro.props;
+const { title, description, coverImage, updatedAt, tags } = Astro.props;
 ---
 
 <section
   class="bg-black flex justify-center w-full min-h-screen h-full py-2 m-0"
 >
-  <article class="max-w-4xl w-full bg-[#171717] text-stone-50 p-10 rounded">
-    <header>
-      <div class="text-gray-400 my-3 font-mono">
-        <a href="/" class="hover:underline">[Back to Home]</a>
-      </div>
-      <h1 class="text-5xl font-brand font-semibold">{title}</h1>
-      <p>
-        <span class="text-gray-300">{description}</span> -
-        <span class="text-gray-200 font-mono"
-          ><StyledDate date={updatedAt} /></span
-        >
-      </p>
-      <div class="my-2 font-mono text-black">
-        {
-          tags?.map((tag) => (
-            <span class="bg-yellow-200 rounded px-2 mx-1">{tag}</span>
-          ))
-        }
-      </div>
-    </header>
+  <article class="max-w-4xl w-full bg-[#171717] text-stone-50 rounded">
+    {
+      coverImage && (
+        <Image
+          src={coverImage}
+          alt={`Cover image for ${title}`}
+          class="w-full h-64 object-top-left object-cover rounded-t"
+        />
+      )
+    }
+    <div class="p-10">
+      <header>
+        <div class="text-gray-400 my-3 font-mono">
+          <a href="/" class="hover:underline">[Back to Home]</a>
+        </div>
+        <h1 class="text-5xl font-brand font-semibold">{title}</h1>
+        <p>
+          <span class="text-gray-300">{description}</span> -
+          <span class="text-gray-200 font-mono"
+            ><StyledDate date={updatedAt} /></span
+          >
+        </p>
+        <div class="my-2 font-mono text-black">
+          {
+            tags?.map((tag) => (
+              <span class="bg-yellow-200 rounded px-2 mx-1">{tag}</span>
+            ))
+          }
+        </div>
+      </header>
 
-    <div class="my-4 text-lg post">
-      <slot />
+      <div class="my-4 text-lg post">
+        <slot />
+      </div>
     </div>
   </article>
 </section>
