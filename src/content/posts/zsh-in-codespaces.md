@@ -1,6 +1,6 @@
 ---
 title: Setup guide for ZSH in GitHub codespaces
-description: Guide on setting up ZSH in github with a few plugins in simple steps
+description: Guide on setting up ZSH in Github's Codespaces along with how to style it with Starship and adding utilities like auto suggestions and syntax highlighting
 createdAt: Dec 24 2025
 updatedAt: Dec 24 2025
 tags: ["zsh", "github", "codespaces", "starship", "terminal"]
