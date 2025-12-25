@@ -8,20 +8,38 @@ import { toAttributeString } from "astro/runtime/server/render/util.js";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.updatedAt.valueOf() - a.data.updatedAt.valueOf()
 );
+
+const title = "Krish | Blogs";
+const description =
+  "You are welcomed to my blog space where I share my silly thoughts.";
+const canonicalUrl = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).toString()
+  : undefined;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
-    <title>Krish | Blogs</title>
   </head>
   <body>
     <section
@@ -57,7 +75,7 @@ const posts = (await getCollection("blog")).sort(
                     </p>
                     <p class="text-black font-mono my-1">
                       {post.data.tags?.map((tag) => (
-                        <span class="mr-1">
+                        <span class="text-sm/5">
                           <span class="bg-yellow-200 rounded px-2">{tag}</span>
                         </span>
                       ))}
