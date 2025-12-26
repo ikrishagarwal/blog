@@ -11,3 +11,11 @@
   --font-brand: "Brockmann", Tahoma, sans-serif;
   --font-mono: "Space Mono", monospace;
 }
+
+::selection {
+  @apply bg-yellow-800/40 text-yellow-50;
+}
+
+::-moz-selection {
+  @apply bg-yellow-200/80 mix-blend-difference;
+}

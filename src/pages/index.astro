@@ -88,6 +88,14 @@ const canonicalUrl = Astro.site
               ))
             }
           </div>
+
+          {
+            posts.length !== 0 && (
+              <p class="text-center text-gray-400 font-mono my-6">
+                That's all for now, stay tuned for more updates!
+              </p>
+            )
+          }
         </div>
       </main>
     </section>
